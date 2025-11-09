@@ -1,0 +1,4 @@
+#!/bin/bash
+
+shellos-refresh-config walker/config.toml
+shellos-restart-walker

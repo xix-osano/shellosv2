@@ -1,0 +1,11 @@
+# Changes require a restart to take effect.
+
+# Ensure Shellos bins are in the path
+export SHELLOS_PATH=$HOME/.local/share/shellos
+export PATH=$SHELLOS_PATH/bin:$PATH
+
+# Set default terminal and editor
+source ~/.config/uwsm/default
+
+# Activate mise if present on the system
+shellos-cmd-present mise && eval "$(mise activate bash)"
