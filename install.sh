@@ -19,7 +19,7 @@ echo -e "\n$ansi_art\n"
 sudo pacman -Syu --noconfirm --needed git
 
 # Use custom repo if specified, otherwise default to xix-osano/shellos
-SHELLOS_REPO="${SHELLOS_REPO:-xix-osano/shellos}"
+SHELLOS_REPO="${SHELLOS_REPO:-xix-osano/shellosv2}"
 
 echo -e "\nCloning Shellos from: https://github.com/${SHELLOS_REPO}.git"
 rm -rf ~/.local/share/shellos/
