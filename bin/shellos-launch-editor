@@ -4,9 +4,9 @@ shellos-cmd-present "$EDITOR" || EDITOR=nvim
 
 case "$EDITOR" in
 nvim | vim | nano | micro | hx | helix)
-  exec setsid uwsm-app -- kitty "$EDITOR" "$@"
+  exec setsid kitty "$EDITOR" "$@"
   ;;
 *)
-  exec setsid uwsm-app -- "$EDITOR" "$@"
+  exec setsid "$EDITOR" "$@"
   ;;
 esac
