@@ -6,16 +6,12 @@ run_logged $SHELLOS_INSTALL/config/firewall.sh
 run_logged $SHELLOS_INSTALL/config/increase-sudo-tries.sh
 run_logged $SHELLOS_INSTALL/config/increase-lockout-limit.sh
 run_logged $SHELLOS_INSTALL/config/ssh-flakiness.sh
-run_logged $SHELLOS_INSTALL/config/detect-keyboard-layout.sh
-run_logged $SHELLOS_INSTALL/config/xcompose.sh
 run_logged $SHELLOS_INSTALL/config/mise-work.sh
-run_logged $SHELLOS_INSTALL/config/docker.sh
 run_logged $SHELLOS_INSTALL/config/mimetypes.sh
 run_logged $SHELLOS_INSTALL/config/localdb.sh
 run_logged $SHELLOS_INSTALL/config/walker.sh
 run_logged $SHELLOS_INSTALL/config/fast-shutdown.sh
 run_logged $SHELLOS_INSTALL/config/hardware/network.sh
-run_logged $SHELLOS_INSTALL/config/hardware/set-wireless-regdom.sh
-run_logged $SHELLOS_INSTALL/config/hardware/bluetooth.sh
+run_logged $SHELLOS_INSTALL/config/hardware/set-wireless-regdomg.sh
 run_logged $SHELLOS_INSTALL/config/hardware/usb-autosuspend.sh
 run_logged $SHELLOS_INSTALL/config/hardware/ignore-power-button.sh

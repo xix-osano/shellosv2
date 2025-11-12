@@ -23,13 +23,7 @@ if ! sudo grep -q "dns=systemd-resolved" "/etc/NetworkManager/conf.d/resolved.co
   sudo systemctl restart NetworkManager
   echo "NetworkManager restarted successfully."
 fi
-
-# Prevent network conflicts with iwd
-# sudo mkdir -p /etc/NetworkManager/conf.d
-# sudo tee /etc/NetworkManager/conf.d/20-iwd.conf >/dev/null <<EOF
-# [device]
-# wifi.backend=iwd
-# EOF
-# sudo systemctl restart NetworkManager.service
+# Enable systemd-resolved service
+sudo systemctl enable --now systemd-resolved.service
 
 

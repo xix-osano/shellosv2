@@ -1,0 +1,9 @@
+source $SHELLOS_INSTALL/helpers/presentation.sh
+source $SHELLOS_INSTALL/helpers/errors.sh
+source $SHELLOS_INSTALL/helpers/logging.sh
+source $SHELLOS_INSTALL/preflight/guard.sh
+run_logged $SHELLOS_INSTALL/preflight/pacman.sh
+run_logged $SHELLOS_INSTALL/preflight/migrations.sh
+run_logged $SHELLOS_INSTALL/preflight/disable-mkinitcpio.sh
+run_logged $SHELLOS_INSTALL/packaging/base.sh
+run_logged $SHELLOS_INSTALL/packaging/lazyvim.sh

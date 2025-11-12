@@ -1,11 +1,11 @@
-# Add ./bin to path for all items in ~/Work
-mkdir -p "$HOME/Work"
+# Add ./bin to path for all items in ~/Projects
+mkdir -p "$HOME/Projects"
 
-cat >"$HOME/Work/.mise.toml" <<'EOF'
+cat >"$HOME/Projects/.mise.toml" <<'EOF'
 [env]
 _.path = "{{ cwd }}/bin"
 EOF
 
-mise trust ~/Work/.mise.toml
+mise trust ~/Projects/.mise.toml
 
 mise use -g node@latest

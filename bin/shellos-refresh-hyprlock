@@ -1,3 +1,0 @@
-#!/bin/bash
-
-shellos-refresh-config hypr/hyprlock.conf

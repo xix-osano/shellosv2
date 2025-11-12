@@ -8,6 +8,7 @@ Type = Package
 Operation = Upgrade
 Target = walker
 Target = walker-debug
+Target = elephant*
 
 [Action]
 Description = Restarting Walker services after system update

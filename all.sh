@@ -37,9 +37,7 @@ export SHELLOS_USER_EMAIL
 #-------------------------------------------------------------------------------
 # 2. Begin modular installation
 #-------------------------------------------------------------------------------
-source "$SHELLOS_INSTALL/helpers/all.sh"
-source "$SHELLOS_INSTALL/preflight/all.sh"
-source "$SHELLOS_INSTALL/packaging/all.sh"
+source "$SHELLOS_INSTALL/scripts/all.sh"
 source "$SHELLOS_INSTALL/config/all.sh"
 source "$SHELLOS_INSTALL/login/all.sh"
 source "$SHELLOS_INSTALL/post-install/all.sh"
