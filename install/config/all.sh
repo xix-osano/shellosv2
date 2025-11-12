@@ -12,6 +12,6 @@ run_logged $SHELLOS_INSTALL/config/localdb.sh
 run_logged $SHELLOS_INSTALL/config/walker.sh
 run_logged $SHELLOS_INSTALL/config/fast-shutdown.sh
 run_logged $SHELLOS_INSTALL/config/hardware/network.sh
-run_logged $SHELLOS_INSTALL/config/hardware/set-wireless-regdomg.sh
+run_logged $SHELLOS_INSTALL/config/hardware/set-wireless-regdom.sh
 run_logged $SHELLOS_INSTALL/config/hardware/usb-autosuspend.sh
 run_logged $SHELLOS_INSTALL/config/hardware/ignore-power-button.sh
