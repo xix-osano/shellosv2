@@ -1,4 +1,4 @@
-source $SHELLOS_INSTALL/script/presentation.sh
+source $SHELLOS_INSTALL/scripts/presentation.sh
 source $SHELLOS_INSTALL/scripts/errors.sh
 source $SHELLOS_INSTALL/scripts/logging.sh
 source $SHELLOS_INSTALL/scripts/guard.sh
