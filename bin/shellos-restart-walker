@@ -1,5 +1,6 @@
 #!/bin/bash
 
+pkill elephant
 pkill walker
 
 # Detect if we're running as root (from pacman hook)
@@ -11,8 +12,11 @@ if [[ $EUID -eq 0 ]]; then
   # Restart services as the script owner
   systemd-run --uid="$SCRIPT_OWNER" --setenv=XDG_RUNTIME_DIR="/run/user/$USER_UID" \
     bash -c "
+      setsid elephant &
       setsid walker --gapplication-service &
     "
 else
+  setsid elephant &
+  wait 2
   setsid walker --gapplication-service &
 fi

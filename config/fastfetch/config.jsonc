@@ -116,12 +116,6 @@
       "format": "\u001b[90m┌─────────────────IP/ Uptime / Age────────────────────┐"
     },
     {
-      "type": "publicip",
-      "key": "󰩠 Public IP",
-      "keyColor": "magenta",
-      "format": "{ip}"
-    },
-    {
       "type": "command",
       "key": "󱦟 OS Age",
       "keyColor": "magenta",

@@ -7,7 +7,7 @@
 # Check for interactive shell
 # ---------------------------
 if [[ $- != *i* ]]; then
-    return
+  return
 fi
 
 # ---------------------------
@@ -62,34 +62,42 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # Bash Completion
 # ---------------------------
 if [[ -f /usr/share/bash-completion/bash_completion ]] && [[ -z $BASH_COMPLETION_VERSINFO ]]; then
-    source /usr/share/bash-completion/bash_completion
+  source /usr/share/bash-completion/bash_completion
 fi
 
 # ---------------------------
 # External Utilities
 # ---------------------------
-for cmd in mise zoxide fzf; do
-    if command -v $cmd &>/dev/null; then
-        eval "$($cmd init bash 2>/dev/null || echo '')"
-    fi
-done
+if command -v mise &>/dev/null; then
+  eval "$(mise activate bash)"
+fi
+
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init bash)"
+fi
 
 # FZF keybindings
-if [[ -f /usr/share/fzf/completion.bash ]]; then source /usr/share/fzf/completion.bash; fi
-if [[ -f /usr/share/fzf/key-bindings.bash ]]; then source /usr/share/fzf/key-bindings.bash; fi
+if command -v fzf &>/dev/null; then
+  if [[ -f /usr/share/fzf/completion.bash ]]; then
+    source /usr/share/fzf/completion.bash
+  fi
+  if [[ -f /usr/share/fzf/key-bindings.bash ]]; then
+    source /usr/share/fzf/key-bindings.bash
+  fi
+fi
 
 # ---------------------------
 # Starship Prompt
 # ---------------------------
 if command -v starship &>/dev/null; then
-    eval "$(starship init bash)"
+  eval "$(starship init bash)"
 fi
 
 # ---------------------------
 # Fastfetch
 # ---------------------------
-if command -v fastfetch &>/dev/null; then
-    fastfetch
+if [ -f /usr/bin/fastfetch ]; then
+  fastfetch
 fi
 
 # ---------------------------
@@ -150,20 +158,20 @@ alias gcad='git commit -a --amend'
 # ZD / CD Overrides
 # ---------------------------
 zd() {
-    if [ $# -eq 0 ]; then
-        builtin cd ~ && return
-    elif [ -d "$1" ]; then
-        builtin cd "$1"
-    else
-        z "$@" && printf "\U000F17A9 " && pwd || echo "Error: Directory not found"
-    fi
+  if [ $# -eq 0 ]; then
+    builtin cd ~ && return
+  elif [ -d "$1" ]; then
+    builtin cd "$1"
+  else
+    z "$@" && printf "\U000F17A9 " && pwd || echo "Error: Directory not found"
+  fi
 }
 cd() {
-    if [ -n "$1" ]; then
-        builtin cd "$@" && ls
-    else
-        builtin cd ~ && ls
-    fi
+  if [ -n "$1" ]; then
+    builtin cd "$@" && ls
+  else
+    builtin cd ~ && ls
+  fi
 }
 
 # -------------------------------
@@ -181,7 +189,7 @@ format-drive() {
 
   local device="$1"
   local label="$2"
-  local fstype="${3:-ext4}"  # default to ext4 if not specified
+  local fstype="${3:-ext4}" # default to ext4 if not specified
   local part
 
   if [[ "$fstype" != "ext4" && "$fstype" != "fat32" ]]; then
@@ -208,12 +216,12 @@ format-drive() {
 
   echo "→ Formatting $part as $fstype..."
   case "$fstype" in
-    ext4)
-      sudo mkfs.ext4 -L "$label" "$part"
-      ;;
-    fat32)
-      sudo mkfs.vfat -F32 -n "$label" "$part"
-      ;;
+  ext4)
+    sudo mkfs.ext4 -L "$label" "$part"
+    ;;
+  fat32)
+    sudo mkfs.vfat -F32 -n "$label" "$part"
+    ;;
   esac
 
   sync
@@ -229,12 +237,14 @@ open() { xdg-open "$@" >/dev/null 2>&1 & }
 # IP lookup
 # ---------------------------
 get_local_ip() {
-    ip route get 1.1.1.1 2>/dev/null | awk '{print $7}'
+  ip route get 1.1.1.1 2>/dev/null | awk '{print $7}'
 }
 
 whatsmyip() {
-    echo -n "Internal IP: "; get_local_ip
-    echo -n "External IP: "; curl -4 ifconfig.me 2>/dev/null
+  echo -n "Internal IP: "
+  get_local_ip
+  echo -n "External IP: "
+  curl -4 ifconfig.me 2>/dev/null
 }
 alias whatismyip="whatsmyip"
 
@@ -242,6 +252,5 @@ alias whatismyip="whatsmyip"
 # Auto-start X only if no DM is running
 # ---------------------------
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && ! pgrep -x sddm >/dev/null; then
-    exec startx
+  exec startx
 fi
-
