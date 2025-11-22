@@ -1,8 +1,6 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    // "type": "file",
-    // "source": "~/.config/shellos/branding/about.txt",
     "color": { "1": "green" },
     "padding": {
       "top": 2,
@@ -62,10 +60,9 @@
       "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
     },
     {
-      "type": "command",
+      "type": "os",
       "key": "\ue900 OS",
-      "keyColor": "cyan",
-      "text": "version=$(shellos-version); echo \"Shellos $version\""
+      "keyColor": "cyan"
     },
     {
       "type": "kernel",
@@ -116,6 +113,11 @@
       "format": "\u001b[90m┌─────────────────IP/ Uptime / Age────────────────────┐"
     },
     {
+      "type": "localip",
+      "key": "󰇮  Local IP",
+      "keyColor": "magenta"
+    },
+    {
       "type": "command",
       "key": "󱦟 OS Age",
       "keyColor": "magenta",
@@ -133,3 +135,4 @@
     "break"
   ]
 }
+
